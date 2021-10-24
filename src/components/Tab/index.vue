@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import TabIcon from './Icon'
+import TabIcon from './TabIcon.vue'
 
 import tabData from '@/data/tab'
 
