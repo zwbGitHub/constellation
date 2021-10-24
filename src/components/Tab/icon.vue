@@ -1,62 +1,58 @@
 <template>
-  <div class="tab">
-    <div 
-      class="tab-item"
-      v-for="(item, index) of tabData"
-      :key="index"
-    >
-      <tab-icon
-        :iconText="item.iconText"
-        :path="item.path"
-      >{{ item.tabText }}</tab-icon>
-    </div>
-  </div>
+  <router-link
+    :to="item.path"
+    class="router"
+    active-class="active"
+  >
+    <div class="circle">{{ item.icon }}</div>
+    <div class="title">{{ item.title }}</div>
+  </router-link>
 </template>
 
 <script>
-
-import TabIcon from './Icon';
-
-import tabData from '@/data/tab';
-
-import { reactive } from 'vue';
-
+/* import { computed } from 'vue'
+import { useStore } from 'vuex' */
 export default {
-  name: 'Tab',
-  components: {
-    TabIcon
-  },
-  setup () {
-    const state = reactive({
-      tabData
-    });
-
-    return {
-      ...state
+  name: 'TabIcon',
+  props: {
+    item: {
+      type: Object
     }
-  }
+  },
+ /*  setup(){
+    const store = useStore(),
+        state= store.state
+   return{
+     routerName:computed(()=>state.routerName)
+   }
+  } */
 }
 </script>
 
-<style lang="scss" scoped>
-  .tab {
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: .44rem;
-    border-top: 1px solid #ddd;
-    background-color: #fff;
+<style lang="less" scoped>
+.router {
+  text-align: center;
+  .circle {
+    font-size: 0.15rem;
+    border-radius: 50%;
+    padding: 0.05rem;
+    background: #DB7093;
+    border: 1px solid;
+    color: #fff;
+  }
 
-    .tab-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 33.33%;
-      height: 100%;
-    }
-  } 
+  .title {
+    margin-top: 0.02rem;
+    font-size: 0.12rem;
+    color: #DB7093;
+  }
+}
+.active  {
+  .circle {
+    border: 1px solid #DB7093;
+    color: #DB7093;
+    background: #fff;
+    transition: all linear 0.1s;
+  }
+}
 </style>

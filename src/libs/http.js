@@ -16,7 +16,7 @@ function axiosPost(options) {
   })
 }
 function axiosGet(options) {
-  axios({
+  return axios({
     url: options.url,
     method: 'get',
     header: {

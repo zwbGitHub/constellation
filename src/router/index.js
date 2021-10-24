@@ -3,32 +3,33 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    name: 'Layout',
+    name: 'layout',
     component: () => import('../views/Layout.vue'),
+    redirect:'/day',
     children: [
       {
         path: '/day',
-        name: 'Day',
+        name: 'day',
         component: () => import('../views/Day.vue')
       },
       {
         path: '/tomorrow',
-        name: 'Tomorrow',
+        name: 'tomorrow',
         component: () => import('../views/Tomorrow.vue')
       },
       {
         path: '/week',
-        name: 'Week',
+        name: 'week',
         component: () => import('../views/Week.vue')
       },
       {
         path: '/month',
-        name: 'Month',
+        name: 'month',
         component: () => import('../views/Month.vue')
       },
       {
         path: '/year',
-        name: 'Year',
+        name: 'year',
         component: () => import('../views/Year.vue')
       }
     ]
