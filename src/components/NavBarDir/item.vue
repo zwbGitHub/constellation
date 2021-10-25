@@ -11,7 +11,7 @@ export default {
   props: {
     item: String,
     index: Number
-  }
+  },
 }
 </script>
 

@@ -8,7 +8,7 @@
 <script>
 // import PageCard from '@/components/Common/Card'
 import PageList from '../components/PageList/Month.vue'
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, onActivated, ref } from 'vue'
 import { useStore } from 'vuex'
 import getAllData from '../service/index'
 export default {
@@ -19,12 +19,18 @@ export default {
   },
   setup() {
     const store = useStore(),
-      state = store.state
-    
+      state = store.state,
+      flag = ref('')
+
     onMounted(() => {
       getAllData(store)
     })
-
+    onActivated(() => {
+      if (flag.value !== state.consName) {
+        getAllData(store)
+        flag.value = state.consName
+      }
+    })
     return {
       monthData: computed(() => state.month)
     }

@@ -5,5 +5,6 @@ export default {
     week:{},
     month:{},
     year:{},
-    routerName:'today'
+    routerName:'today',
+    errorCode:0
 }

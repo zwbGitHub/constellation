@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { inject } from '@vue/runtime-core'
 import { useStore } from 'vuex'
 export default {
   name: 'NavItem',

@@ -22,11 +22,13 @@
 </template>
 
 <script>
+import NavName from '../../data/nav-name'
+import NavItem from './item'
+import getAllData from '@/service/index.js'
 import { ref } from 'vue'
 import { addActiveClass } from '@/directives/index'
 import { useStore } from 'vuex'
-import NavName from '../../data/nav-name'
-import NavItem from './item'
+
 export default {
   name: 'NavBar',
   components: {
@@ -45,6 +47,7 @@ export default {
       if (NavName.includes(activeText)) {
         consIdx.value = NavName.findIndex(item => item === activeText)
         store.commit('setConsName', activeText)
+         getAllData(store)
       }
     }
     return {

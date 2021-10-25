@@ -1,6 +1,6 @@
 export default [
     {
-        path:'/day',
+        path:'/today',
         icon:'今',
         title:'今天'
     },

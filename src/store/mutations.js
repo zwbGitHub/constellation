@@ -7,5 +7,8 @@ export default {
   },
   setRouterName(state,value){
       state.routerName = value
+  },
+  setErrorCode(state,value){
+    state.errorCode = value
   }
 }

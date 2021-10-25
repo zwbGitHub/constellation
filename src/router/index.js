@@ -5,12 +5,12 @@ const routes = [
     path: '/',
     name: 'layout',
     component: () => import('../views/Layout.vue'),
-    redirect:'/day',
+    redirect:'/today',
     children: [
       {
-        path: '/day',
-        name: 'day',
-        component: () => import('../views/Day.vue')
+        path: '/today',
+        name: 'today',
+        component: () => import('../views/Today.vue')
       },
       {
         path: '/tomorrow',

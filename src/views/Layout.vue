@@ -1,7 +1,8 @@
 <template>
   <my-header />
   <nav-bar />
-  <router-view v-slot="{ Component }">
+  <error-page />
+  <router-view v-slot="{ Component }" v-if="!errorCode">
     <keep-alive>
       <component :is="Component" />
     </keep-alive>
@@ -13,20 +14,21 @@
 import MyHeader from '../components/Header'
 import NavBar from '../components/NavBarDir'
 import Tab from '../components/Tab/index.vue'
+import ErrorPage from '../components/ErrorPage'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
-import { watch } from 'vue'
+import { computed, watch } from 'vue'
 export default {
   name: 'Layout',
   components: {
     MyHeader,
     Tab,
-    NavBar
+    NavBar,
+    ErrorPage
   },
   setup() {
     const router = useRouter()
     const store = useStore()
-
     router.replace('/')
     watch(
       () => {
@@ -41,7 +43,9 @@ export default {
     //   },(value)=>{
     //     console.log(value)
     //   })
-    return {}
+    return {
+      errorCode: computed(() => store.state.errorCode)
+    }
   }
 }
 </script>

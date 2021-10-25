@@ -17,17 +17,17 @@ header {
   left: 0;
   top: 0;
   right: 0;
-   height: .44rem;
+  height: 0.44rem;
   text-align: center;
-   justify-content: center;
+  justify-content: center;
   line-height: 0.44rem;
-  background: #DB7093;
+  background: #db7093;
   color: rgba(255, 255, 255, 0.952);
-  font-size: .18rem;
+  font-size: 0.18rem;
   z-index: 999;
   img {
-    width: .26rem;
-    margin-right: .05rem
+    width: 0.26rem;
+    margin-right: 0.05rem;
   }
 }
 </style>
